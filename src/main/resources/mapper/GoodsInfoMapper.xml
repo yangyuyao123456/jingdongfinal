@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ks.spider.mapper.GoodsInfoMapper">
+    <!--模糊查询商品名称-->
+    <select id="getGoodsInfoByName" resultType="com.ks.spider.entity.GoodsInfo">
+        SELECT id, goods_name,url,sku,pic from jingdongspider where LOCATE(#{name},goods_name)
+        limit #{pageSize} offset #{offset}
+    </select>
+</mapper>
